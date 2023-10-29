@@ -33,15 +33,28 @@
                     <div class="login">
                         <div class="group">
                             <label for="user" class="label">Usuario</label>
-                            <input id="user" type="text" class="input"  placeholder="Ingresa tu Usuario">
+                            <input id="user" name="user" type="text" class="input"  placeholder="Ingresa tu Usuario">
                         </div>
                         <div class="group">
                             <label for="pass" class="label">Contraseña</label>
-                            <input id="pass" type="password" class="input" data-type="password" placeholder="Ingresa tu contraseña">
+                            <input id="pass" name="pass" type="password" class="input" data-type="password" placeholder="Ingresa tu contraseña">
                         </div>
                         <br>
                         <div class="group">
                             <input type="submit" class="button" value="Iniciar Sesión">
+                        </div>
+                        <div class="group px-auto text-center">
+                        <?php
+                        if (session_status() == PHP_SESSION_NONE) {
+                            session_start();
+                        }
+                        if(isset($_SESSION['Error']))
+                        {
+                            echo "<span style=\"color: red;\">".$_SESSION['Error']."</span>";
+                            unset($_SESSION['Error']);
+                            //echo "<span style=\"color: red;\">".$_SESSION['Error']."</span>";
+                        }
+                        ?>
                         </div>
                         <div class="hr"></div>
                     </div>
