@@ -48,7 +48,5 @@ insert into users values (null,'Leonardo', 'Velázquez', 'Argote','123',1);
 insert into users values (null,'Alfredo', 'Salinas', 'Chaves','123',1);
 insert into users values (null,'Alondra Nathaly', 'Contreras', 'Ortíz','123',1);
 
-SELECT * FROM usuario
-
 select us.id, us.nombre, u.usuario, us.pass, us.permisos 
 from users us join usuario u on us.id = u.fkUsers;
