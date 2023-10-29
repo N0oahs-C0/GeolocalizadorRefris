@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <title>Administradores</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
+<body style="background-image: url('img/FondoAdmin.jpg');">
     <header class="">
         <nav class="navbar login-navbar">
             <div class="container-fluid">

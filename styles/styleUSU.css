@@ -1,14 +1,13 @@
 body{
 	margin:0;
 	color:#6a6f8c;
-	background:url(FondoAdmin.jpg)
-    no-repeat;
+	background:url('./img/FondoUsuario1.png') no-repeat;
     height: 100vh;
     background-size: cover;background-repeat: no-repeat;
 	font:600 16px/18px 'Open Sans',sans-serif;
 }
 .login-navbar{
-    background-color: #0b0d0e;
+    background-color: #131d1f;
 }
 .form-login{
     display: flex;
@@ -22,7 +21,7 @@ body{
 	max-width:525px;
 	min-height:670px;
 	position:relative;
-	background:url(FormAdmin.jpg);
+	background:url('./img/FormUsuarios.png');
 	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
 .login-snip{
@@ -31,7 +30,7 @@ body{
 	position:absolute;
 	padding:90px 70px 50px 70px;
 	/* background:rgba(0, 77, 77,.9); */
-    background:rgba(21, 24, 24, 0.76);
+    background:rgba(29, 77, 77, 0.76);
 }
 .login-snip .login,
 .login-snip .sign-up-form{
@@ -98,7 +97,7 @@ body{
 	font-size:12px;
 }
 .login-space .group .button{
-	background:#323c3d;
+	background:#508286;
 }
 .login-space .group label .icon{
 	width:15px;
