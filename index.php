@@ -7,7 +7,7 @@
     <title>Administradores</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
+<body style="background-image: url('img/FondoAdmin.jpg');">
     <header class="">
         <nav class="navbar login-navbar">
             <div class="container-fluid">
