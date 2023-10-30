@@ -16,7 +16,7 @@
               </div>
               <ul class="nav navbar-nav">
                 <li><a href="index.php">ADMINISTRADORES</a></li>
-                <li><a href="LoginUsuario.html">USUARIOS</a></li>
+                <li><a href="LoginUsuario.php">USUARIOS</a></li>
               </ul>
             </div>
     </header>
@@ -31,6 +31,7 @@
                 <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
                 <div class="login-space">
                     <div class="login">
+                        <input id="permisos" name="permisos" type="text" value="admin" style="visibility: hidden;">
                         <div class="group">
                             <label for="user" class="label">Usuario</label>
                             <input id="user" name="user" type="text" class="input"  placeholder="Ingresa tu Usuario">
@@ -44,17 +45,17 @@
                             <input type="submit" class="button" value="Iniciar Sesión">
                         </div>
                         <div class="group px-auto text-center">
-                        <?php
-                        if (session_status() == PHP_SESSION_NONE) {
-                            session_start();
-                        }
-                        if(isset($_SESSION['Error']))
-                        {
-                            echo "<span style=\"color: red;\">".$_SESSION['Error']."</span>";
-                            unset($_SESSION['Error']);
-                            //echo "<span style=\"color: red;\">".$_SESSION['Error']."</span>";
-                        }
-                        ?>
+                            <?php
+                            if (session_status() == PHP_SESSION_NONE) {
+                                session_start();
+                            }
+                            if(isset($_SESSION['Error']))
+                            {
+                                echo "<span style=\"color: red;\">".$_SESSION['Error']."</span>";
+                                unset($_SESSION['Error']);
+                                //echo "<span style=\"color: red;\">".$_SESSION['Error']."</span>";
+                            }
+                            ?>
                         </div>
                         <div class="hr"></div>
                     </div>
