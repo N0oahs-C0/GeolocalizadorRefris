@@ -7,7 +7,7 @@
     <title>Administradores</title>
     <link rel="stylesheet" href="styles/styleUSU.css">
 </head>
-<body style="background:url('./img/FondoUsuario1.png');">
+<body>
     <header class="">
         <nav class="navbar login-navbar">
             <div class="container-fluid">
