@@ -40,7 +40,12 @@ if(isset($_POST['user']) && isset($_POST['pass'])){
         }
         exit;
     } else {
-        redirigirConError("Error: Usuario o contraseña incorrectos.");
+        if($permisos == 'admin') {
+            redirigirConError("Error: El usuario proporcionado no es administrador.");
+        } else if($permisos == 'user') {
+            redirigirConError("Error: El usuario proporcionado es administrador.");
+        }
+        
     }
 } else {
     redirigirConError("Error: Credenciales no proporcionadas.");
