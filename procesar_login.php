@@ -11,34 +11,26 @@ if(isset($_POST['user']) && isset($_POST['pass'])){
     "'$usuario' AND u.pass = '$password' AND permisos = '$permisos' and u.id=usu.fkUsers";
     $result = mysqli_query($conn, $query);
 
-    /*
-    $queryNoAdmin = "SELECT * FROM users u, usuario usu WHERE usu.usuario = ".
-    "'$usuario' AND u.pass = '$password' AND permisos = 'user' and u.id=usu.fkUsers";
-    $noAdmin=mysqli_query($conn, $queryNoAdmin);*/
-
     if (!$result) {
-         die("Error en la consulta: " . mysqli_error($conn));
+        die("Error en la consulta: " . mysqli_error($conn));
     }
     mysqli_close($conn);
 
-    if((empty($nombre)||$nombre==null)&&(empty($password)||$password==null))
-    {
-        $_SESSION['Error'] = "Error: Credenciales no proporcionadas.";
+    function redirigirConError($error_message) {
+        $_SESSION['Error'] = $error_message;
         if (isset($_SERVER['HTTP_REFERER'])) {
             header("Location: " . $_SERVER['HTTP_REFERER']);
         } else {
             // Si no hay una página anterior en el historial, redirige a una página predeterminada
             header("Location: index.php");
-        }        
+        }
         exit;
     }
-    /*
-    else if (mysqli_num_rows($noAdmin) == 1) {
-        $_SESSION['Error'] = "Error: El usuario propornionado no es administrador.";
-        header('Location: index.php');
-        exit;
-    }*/
-    else if (mysqli_num_rows($result) == 1) {
+
+    if((empty($nombre)||$nombre==null)&&(empty($password)||$password==null))
+    {
+        redirigirConError("Error: Credenciales no proporcionadas.");
+    } else if (mysqli_num_rows($result) == 1) {
         $_SESSION['user'] = $_POST['user'];
         $_SESSION['permisos'] = $_POST['permisos'];
         if($permisos == 'admin') {
@@ -48,23 +40,9 @@ if(isset($_POST['user']) && isset($_POST['pass'])){
         }
         exit;
     } else {
-        $_SESSION['Error'] = "Error: Usuario o contraseña incorrectos.";
-        if (isset($_SERVER['HTTP_REFERER'])) {
-            header("Location: " . $_SERVER['HTTP_REFERER']);
-        } else {
-            // Si no hay una página anterior en el historial, redirige a una página predeterminada
-            header("Location: index.php");
-        }
-        exit;
+        redirigirConError("Error: Usuario o contraseña incorrectos.");
     }
 } else {
-    $_SESSION['Error'] = "Error: Credenciales no proporcionadas.";
-    if (isset($_SERVER['HTTP_REFERER'])) {
-        header("Location: " . $_SERVER['HTTP_REFERER']);
-    } else {
-        // Si no hay una página anterior en el historial, redirige a una página predeterminada
-        header("Location: index.php");
-    }
-    exit;
+    redirigirConError("Error: Credenciales no proporcionadas.");
 }
 ?>
