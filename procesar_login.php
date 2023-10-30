@@ -31,7 +31,7 @@ if(isset($_POST['user']) && isset($_POST['pass'])){
     else if (mysqli_num_rows($result) == 1) {
         $_SESSION['user'] = $_POST['user'];
         $_SESSION['permisos'] = "admin";
-        header('Location: menu.php');
+        header('Location: menu.html');
         exit;
     } else {
         $_SESSION['Error'] = "Error: Usuario o contraseña incorrectos.";
