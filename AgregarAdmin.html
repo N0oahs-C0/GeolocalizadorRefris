@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <title>Administradores</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/styleagregar.css">
 </head>
 <body>
     <header class="">
@@ -15,53 +15,112 @@
                 <a class="navbar-brand" href="Menu.html">MENU</a>
               </div>
               <ul class="nav navbar-nav">
-                <li><a href="AgregarAdmin.html">Agregar Administrador</a></li>
+                <li><a href="AgregarAdmin.html">Agregar Usuario</a></li>
                 <li><a href="#">Agregar Refrigerador</a></li>
               </ul>
             </div>
     </header>
-    <br>
-    <form class="form-login" action="" method="POST">
-        <div class ="row">
-            <div class="col-md-6 mx-auto p-0">
-                <div class="card">
-        <div class="login-box">
-            <div class="login-snip">
-                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Registrar Admin</label>
-                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
-                <div class="login-space">
-                    <div class="login">
-                        <div class="group">
-                            <label for="name" class="label">Nombre</label>
-                            <input id="name" type="text" class="input" placeholder="Ingresa el Nombre">
+    <section style="display: flex; justify-content: flex-end; align-items: center; padding: 0 70px;">
+        <div class="group" style="margin-bottom: 20px;">
+            <label for="select" class="label" style="margin-right: 10px;">Usuario</label>
+            <select id="Usuariouwu" class="selectpicker" name="Usuariouwu" style="width: 200px;">
+            </select>
+        </div>
+    </section>
+    <div style="display: flex; justify-content: space-between; padding: 0 70px;">
+        <form style="flex: 0 0 45%; display: flex; flex-direction: column; align-items: flex-start;" action="" method="post">
+            <div class ="row">
+                <div class="col-md-6 mx-auto p-0">
+                    <div class="card">
+            <div class="login-box">
+                <div class="login-snip">
+                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Registrar</label>
+                    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
+                    <div class="login-space">
+                        <div class="login">
+                            <div class="group">
+                                <label for="name" class="label">Nombre</label>
+                                <input id="name" type="text" class="input" placeholder="Ingresa el Nombre">
+                            </div>
+                            <div class="group">
+                                <label for="lastname" class="label">Apellido Paterno</label>
+                                <input id="lastname" type="text" class="input" placeholder="Ingresa el primer Apellido">
+                            </div>
+                            <div class="group">
+                                <label for="lastname2" class="label">Apellido Materno</label>
+                                <input id="lastname2" type="text" class="input" placeholder="Ingresa el segundo Apellido">
+                            </div>
+                            <div class="group">
+                                <label for="pass" class="label">Contraseña</label>
+                                <input id="pass" type="password" class="input" data-type="password" placeholder="Crea una contraseña">
+                            </div>
+                            <div class="group">
+                                <label for="select" class="label">Rol</label>
+                                <select id="select" class="selectpicker">
+                                    <option>Administrador</option>
+                                    <option>Usuario</option>
+                                  </select>
+                            </div>
+                            <br>
+                            <div class="group">
+                                <input type="submit" class="button" value="Registrar">
+                            </div>
                         </div>
-                        <div class="group">
-                            <label for="lastname" class="label">Apellido Paterno</label>
-                            <input id="lastname" type="text" class="input" placeholder="Ingresa el primer Apellido">
-                        </div>
-                        <div class="group">
-                            <label for="lastname2" class="label">Apellido Materno</label>
-                            <input id="lastname2" type="text" class="input" placeholder="Ingresa el segundo Apellido">
-                        </div>
-                        <div class="group">
-                            <label for="pass" class="label">Contraseña</label>
-                            <input id="pass" type="password" class="input" data-type="password" placeholder="Crea una contraseña">
-                        </div>
-                        <br>
-                        <div class="group">
-                            <input type="submit" class="button" value="Registrar">
-                        </div>
-                        <div class="group px-auto text-center">
-                        </div>
-                        <div class="hr"></div>
                     </div>
                 </div>
+            </div>   
             </div>
-        </div>   
-        </div>
-        </div>
-        </div>
-    </form>
-        
+            </div>
+            </div>
+        </form>
+        <form style="flex: 0 0 45%; display: flex; flex-direction: column; align-items: flex-start;" action="" method="post">
+            <div class ="row">
+                <div class="col-md-6 mx-auto p-0">
+                    <div class="card">
+            <div class="login-box">
+                <div class="login-snip">
+                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Modificar/Eliminar</label>
+                    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
+                    <div class="login-space">
+                        <div class="login">
+                            <div class="group">
+                                <label for="name" class="label">Nombre</label>
+                                <input id="name" type="text" class="input" placeholder="Ingresa el Nombre">
+                            </div>
+                            <div class="group">
+                                <label for="lastname" class="label">Apellido Paterno</label>
+                                <input id="lastname" type="text" class="input" placeholder="Ingresa el primer Apellido">
+                            </div>
+                            <div class="group">
+                                <label for="lastname2" class="label">Apellido Materno</label>
+                                <input id="lastname2" type="text" class="input" placeholder="Ingresa el segundo Apellido">
+                            </div>
+                            <div class="group">
+                                <label for="pass" class="label">Contraseña</label>
+                                <input id="pass" type="password" class="input" data-type="password" placeholder="Crea una contraseña">
+                            </div>
+                            <div class="group">
+                                <label for="select" class="label">Rol</label>
+                                <select id="select" class="selectpicker">
+                                    <option>Administrador</option>
+                                    <option>Usuario</option>
+                                  </select>
+                            </div>
+                            <div class="group">
+                                <button id="btneliminar" class="button" style="background-color: rgb(99, 40, 40);">Eliminar</button>
+                            </div>
+                            <div class="group">
+                                <button id="btnModificar" class="button" style="background-color: rgb(52, 99, 40);">Modificar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+            </div>
+            </div>
+            </div>
+        </form>
+    </div>
+
 </body>
 </html>
