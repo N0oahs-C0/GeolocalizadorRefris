@@ -34,9 +34,9 @@ if(isset($_POST['user']) && isset($_POST['pass'])){
         $_SESSION['user'] = $_POST['user'];
         $_SESSION['permisos'] = $_POST['permisos'];
         if($permisos == 'admin') {
-            header('Location: menu.html'); 
+            header('Location: Menu.html'); 
         } else if($permisos == 'user') {
-            header('Location: menu.html'); //cambiar a la pagina del usuario
+            header('Location: Menu.html'); //cambiar a la pagina del usuario
         }
         exit;
     } else {
