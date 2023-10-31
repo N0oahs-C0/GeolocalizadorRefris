@@ -12,11 +12,16 @@
         <nav class="navbar login-navbar">
             <div class="container-fluid">
               <div class="navbar-header">
-                <a class="navbar-brand" href="Menu.html">MENU</a>
+                <a class="navbar-brand" href="Menu.php">MENU</a>
               </div>
               <ul class="nav navbar-nav">
-                <li><a href="AgregarAdmin.html">Agregar Usuario</a></li>
-                <li><a href="#">Agregar Refrigerador</a></li>
+                <?php
+                if($_SESSION['permisos']=="admin")
+                {
+                    echo '<li><a href="AgregarAdmin.php" style="color:#6a6f8c">Administrar Usuarios</a></li>';
+                    echo '<li><a href="#" style="color:#6a6f8c">Agregar Refrigerador</a></li>';
+                }
+                ?>
               </ul>
             </div>
     </header>
@@ -28,7 +33,7 @@
         </div>
     </section>
     <div style="display: flex; justify-content: space-between; padding: 0 70px;">
-        <form style="flex: 0 0 45%; display: flex; flex-direction: column; align-items: flex-start;" action="" method="post">
+        <form style="flex: 0 0 45%; display: flex; flex-direction: column; align-items: flex-start;" action="AdmUsuarios.php" method="post">
             <div class ="row">
                 <div class="col-md-6 mx-auto p-0">
                     <div class="card">
@@ -40,30 +45,30 @@
                         <div class="login">
                             <div class="group">
                                 <label for="name" class="label">Nombre</label>
-                                <input id="name" type="text" class="input" placeholder="Ingresa el Nombre">
+                                <input id="name" name="_nombre" type="text" class="input" placeholder="Ingresa el Nombre">
                             </div>
                             <div class="group">
                                 <label for="lastname" class="label">Apellido Paterno</label>
-                                <input id="lastname" type="text" class="input" placeholder="Ingresa el primer Apellido">
+                                <input id="lastname" name="_apellidoP" type="text" class="input" placeholder="Ingresa el primer Apellido">
                             </div>
                             <div class="group">
                                 <label for="lastname2" class="label">Apellido Materno</label>
-                                <input id="lastname2" type="text" class="input" placeholder="Ingresa el segundo Apellido">
+                                <input id="lastname2" name="_apellidoM" type="text" class="input" placeholder="Ingresa el segundo Apellido">
                             </div>
                             <div class="group">
                                 <label for="pass" class="label">Contraseña</label>
-                                <input id="pass" type="password" class="input" data-type="password" placeholder="Crea una contraseña">
+                                <input id="pass" name="pass" type="password" class="input" data-type="password" placeholder="Crea una contraseña">
                             </div>
                             <div class="group">
                                 <label for="select" class="label">Rol</label>
-                                <select id="select" class="selectpicker">
-                                    <option>Administrador</option>
-                                    <option>Usuario</option>
-                                  </select>
+                                <select name="r_permisos" id="select" class="selectpicker">
+                                    <option value="admin">Administrador</option>
+                                    <option value="user">Usuario</option>
+                                </select>
                             </div>
                             <br>
                             <div class="group">
-                                <input type="submit" class="button" value="Registrar">
+                                <input name="_enviar" type="submit" class="button" value="Registrar">
                             </div>
                         </div>
                     </div>
@@ -73,7 +78,7 @@
             </div>
             </div>
         </form>
-        <form style="flex: 0 0 45%; display: flex; flex-direction: column; align-items: flex-start;" action="" method="post">
+        <form style="flex: 0 0 45%; display: flex; flex-direction: column; align-items: flex-start;" action="AdmUsuarios.php" method="post">
             <div class ="row">
                 <div class="col-md-6 mx-auto p-0">
                     <div class="card">
@@ -107,10 +112,10 @@
                                   </select>
                             </div>
                             <div class="group">
-                                <button id="btneliminar" class="button" style="background-color: rgb(99, 40, 40);">Eliminar</button>
+                                <input type="submit" value="Eliminar" name="_enviar" id="btneliminar" class="button" style="background-color: rgb(99, 40, 40);"></input>
                             </div>
                             <div class="group">
-                                <button id="btnModificar" class="button" style="background-color: rgb(52, 99, 40);">Modificar</button>
+                                <input type="submit" value="Modificar" name="_enviar" id="btnModificar" class="button" style="background-color: rgb(52, 99, 40);"></input>
                             </div>
                         </div>
                     </div>

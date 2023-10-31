@@ -52,3 +52,14 @@ insert into users values (null,'Juan', 'Ey', 'Si','123',2);
 
 select us.id, us.nombre, u.usuario, us.pass, us.permisos 
 from users us join usuario u on us.id = u.fkUsers;
+
+use geolocalizador;
+drop procedure if exists v_usuarios;
+delimiter //
+create procedure v_usuarios(in _id int)
+begin
+select u.nombre, u.apellidoP, u.apellidoM, u.pass, usu.usuario from users u, 
+usuario usu where u.id=usu.fkUsers and u.id=_id;
+end;
+//
+delimiter ;
