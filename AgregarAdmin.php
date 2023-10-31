@@ -16,6 +16,7 @@
               </div>
               <ul class="nav navbar-nav">
                 <?php
+                session_start();
                 if($_SESSION['permisos']=="admin")
                 {
                     echo '<li><a href="AgregarAdmin.php" style="color:#6a6f8c">Administrar Usuarios</a></li>';

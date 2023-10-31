@@ -33,11 +33,12 @@ if(isset($_POST['user']) && isset($_POST['pass'])){
     } else if (mysqli_num_rows($result) == 1) {
         $_SESSION['user'] = $_POST['user'];
         $_SESSION['permisos'] = $_POST['permisos'];
-        if($permisos == 'admin') {
-            header('Location: Menu.html'); 
+        header('Location: Menu.php'); 
+        /*if($permisos == 'admin') {
+            header('Location: Menu.php'); 
         } else if($permisos == 'user') {
-            header('Location: Menu.html'); //cambiar a la pagina del usuario
-        }
+            header('Location: Menu.php'); //cambiar a la pagina del usuario
+        }*/
         exit;
     } else {
         if($permisos == 'admin') {

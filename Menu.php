@@ -15,8 +15,14 @@
                 <a class="navbar-brand" href="#" style="color:#6a6f8c">GEOLOCALIZADOR</a>
               </div>
               <ul class="nav navbar-nav">
-                <li><a href="AgregarAdmin.php" style="color:#6a6f8c">Administrar Usuarios</a></li>
-                <li><a href="#" style="color:#6a6f8c">Agregar Refrigerador</a></li>
+                <?php
+                session_start();
+                if($_SESSION['permisos']=="admin")
+                {
+                    echo '<li><a href="AgregarAdmin.php" style="color:#6a6f8c">Administrar Usuarios</a></li>';
+                    echo '<li><a href="#" style="color:#6a6f8c">Agregar Refrigerador</a></li>';
+                }
+                ?>
               </ul>
             </div>
     </header>
