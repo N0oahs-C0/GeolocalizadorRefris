@@ -29,7 +29,7 @@
     <section style="display: flex; justify-content: flex-end; align-items: center; padding: 0 70px;">
         <div class="group" style="margin-bottom: 20px;">
             <label for="select" class="label" style="margin-right: 10px;">Usuario</label>
-            <select id="Usuariouwu" class="selectpicker" name="Usuariouwu" style="width: 200px;">
+            <select id="Usuariouwu" class="selectpicker" name="Usuariouwu" style="width: 200px;" onchange="enviarValor()">
             </select>
         </div>
     </section>
@@ -58,7 +58,7 @@
                             </div>
                             <div class="group">
                                 <label for="pass" class="label">Contraseña</label>
-                                <input id="pass" name="pass" type="password" class="input" data-type="password" placeholder="Crea una contraseña">
+                                <input id="pass" name="_pass" type="password" class="input" data-type="password" placeholder="Crea una contraseña">
                             </div>
                             <div class="group">
                                 <label for="select" class="label">Rol</label>
@@ -85,7 +85,7 @@
                     <div class="card">
             <div class="login-box">
                 <div class="login-snip">
-                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Modificar/Eliminar</label>
+                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Modificar / Eliminar</label>
                     <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
                     <div class="login-space">
                         <div class="login">
@@ -118,6 +118,15 @@
                             <div class="group">
                                 <input type="submit" value="Modificar" name="_enviar" id="btnModificar" class="button" style="background-color: rgb(52, 99, 40);"></input>
                             </div>
+                            <?php
+                            if (isset($_GET['usuario'])
+                            &&isset($_SESSION['usuario_registrado']) && $_SESSION['usuario_registrado'] === true) {
+                                $usuario = $_GET['usuario'];
+                                echo '<script>alert("Usuario registrado, el usuario es: ' . $usuario . '");</script>';
+                                // Elimina la variable de sesión para que no se muestre nuevamente
+                                unset($_SESSION['usuario_registrado']);
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -127,6 +136,23 @@
             </div>
         </form>
     </div>
+    <script>
+    function enviarValor() {
+        var select = document.getElementById("Usuariouwu");
+        var valorSeleccionado = select.options[select.selectedIndex].value;
 
+        var xhr = new XMLHttpRequest();
+        var url = "AdmUsuarios.php";
+        xhr.open("POST", url, true);
+
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(xhr.responseText);
+            }
+        };
+        xhr.send("Usuariouwu=" + valorSeleccionado);
+    }
+</script>
 </body>
 </html>
