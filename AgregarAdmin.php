@@ -12,11 +12,13 @@
         <nav class="navbar login-navbar">
             <div class="container-fluid">
               <div class="navbar-header">
-                <a class="navbar-brand" href="Menu.php">MENU</a>
+                <a class="navbar-brand" href="Menu.php">MENÚ</a>
               </div>
               <ul class="nav navbar-nav">
                 <?php
-                session_start();
+                require('conexion.php');
+                $result = mysqli_query($conn, "select * from usuario");
+                $datos = mysqli_fetch_assoc(mysqli_query($conn,"call v_usuarios(".$id.")"));
                 if($_SESSION['permisos']=="admin")
                 {
                     echo '<li><a href="AgregarAdmin.php" style="color:#6a6f8c">Administrar Usuarios</a></li>';
@@ -30,6 +32,12 @@
         <div class="group" style="margin-bottom: 20px;">
             <label for="select" class="label" style="margin-right: 10px;">Usuario</label>
             <select id="Usuariouwu" class="selectpicker" name="Usuariouwu" style="width: 200px;" onchange="enviarValor()">
+                <?php
+                while ($usuario_select = mysqli_fetch_assoc($result))
+                {
+                    echo "<option value=\"".$usuario_select['id']."\">".$usuario_select['usuario']."</option>";
+                }
+                ?>
             </select>
         </div>
     </section>
@@ -91,26 +99,26 @@
                         <div class="login">
                             <div class="group">
                                 <label for="name" class="label">Nombre</label>
-                                <input id="name" type="text" class="input" placeholder="Ingresa el Nombre">
+                                <input id="name" name="m_nombre" type="text" class="input" placeholder="Ingresa el Nombre">
                             </div>
                             <div class="group">
                                 <label for="lastname" class="label">Apellido Paterno</label>
-                                <input id="lastname" type="text" class="input" placeholder="Ingresa el primer Apellido">
+                                <input id="lastname" name="m_apellidoP" type="text" class="input" placeholder="Ingresa el primer Apellido">
                             </div>
                             <div class="group">
                                 <label for="lastname2" class="label">Apellido Materno</label>
-                                <input id="lastname2" type="text" class="input" placeholder="Ingresa el segundo Apellido">
+                                <input id="lastname2" name="m_apellidoM" type="text" class="input" placeholder="Ingresa el segundo Apellido">
                             </div>
                             <div class="group">
                                 <label for="pass" class="label">Contraseña</label>
-                                <input id="pass" type="password" class="input" data-type="password" placeholder="Crea una contraseña">
+                                <input id="pass" name="m_pass" type="password" class="input" data-type="password" placeholder="Crea una contraseña">
                             </div>
                             <div class="group">
                                 <label for="select" class="label">Rol</label>
-                                <select id="select" class="selectpicker">
-                                    <option>Administrador</option>
-                                    <option>Usuario</option>
-                                  </select>
+                                <select id="select" name="m_r_permisos" class="selectpicker">
+                                    <option value="admin">Administrador</option>
+                                    <option value="user">Usuario</option>
+                                </select>
                             </div>
                             <div class="group">
                                 <input type="submit" value="Eliminar" name="_enviar" id="btneliminar" class="button" style="background-color: rgb(99, 40, 40);"></input>
@@ -153,6 +161,6 @@
         };
         xhr.send("Usuariouwu=" + valorSeleccionado);
     }
-</script>
+    </script>
 </body>
 </html>
