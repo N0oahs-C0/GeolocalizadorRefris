@@ -30,7 +30,7 @@ if(isset($_POST['opcion'])){
             }
             mysqli_close($conn);
     
-            if((empty($usuario)||$usuario==null)&&(empty($password)||$password==null)) {
+            if((empty($usuario)||$usuario==null)||(empty($password)||$password==null)) {
                 redirigirConMensaje("Error: Credenciales no proporcionadas.");
             } else if (mysqli_num_rows($result) == 1) {
                 $_SESSION['user'] = $_POST['user'];
