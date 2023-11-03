@@ -42,7 +42,7 @@
                         </div>
                         <br>
                         <div class="group">
-                            <input type="submit" class="button" value="Iniciar Sesión">
+                            <input id="opcion" name="opcion" type="submit" class="button" value="Iniciar Sesión">
                         </div>
                         <div class="group px-auto text-center">
                             <?php
@@ -62,23 +62,23 @@
                     <div class="sign-up-form">
                         <div class="group">
                             <label for="name" class="label">Nombre</label>
-                            <input id="name" type="text" class="input" placeholder="Ingresa tu Nombre">
+                            <input id="name" name="name" type="text" class="input" placeholder="Ingresa tu Nombre">
                         </div>
                         <div class="group">
                             <label for="lastname" class="label">Apellido Paterno</label>
-                            <input id="lastname" type="text" class="input" placeholder="Ingresa tu primer Apellido">
+                            <input id="lastname" name="lastname" type="text" class="input" placeholder="Ingresa tu primer Apellido">
                         </div>
                         <div class="group">
                             <label for="lastname2" class="label">Apellido Materno</label>
-                            <input id="lastname2" type="text" class="input" placeholder="Ingresa tu segundo Apellido">
+                            <input id="lastname2" name="lastname2" type="text" class="input" placeholder="Ingresa tu segundo Apellido">
                         </div>
                         <div class="group">
-                            <label for="pass" class="label">Contraseña</label>
-                            <input id="pass" type="password" class="input" data-type="password" placeholder="Crea tu contraseña">
+                            <label for="pass1" class="label">Contraseña</label>
+                            <input id="pass1" name="pass1" type="password" class="input" data-type="password" placeholder="Crea tu contraseña">
                         </div>
                         <br>
                         <div class="group">
-                            <input type="submit" class="button" value="Registrarse">
+                            <input id="opcion" name="opcion" type="submit" class="button" value="Registrarse">
                         </div>
                         <div class="hr"></div>
                         <div class="foot">
