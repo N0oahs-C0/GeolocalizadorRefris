@@ -60,20 +60,20 @@ if(isset($_POST['opcion'])){
             $lastname = $_POST['lastname'];
             $lastname2 = $_POST['lastname2'];
             $pass = $_POST['pass1'];
-        
-            $query = "INSERT INTO users VALUES (NULL,'$name', '$lastname', '$lastname2','$pass',2)";
-            $result = mysqli_query($conn, $query);
-        
-            if (!$result) {
-                die("Error en la consulta: " . mysqli_error($conn));
-            }
-            mysqli_close($conn);
-        
+
             if((empty($name)||$name==null)||(empty($lastname)||$lastname==null)||
-            (empty($lastname2)||$lastname2==null)||(empty($pass)||$pass==null) || !is_int($pass)) {
-                redirigirConMensaje("Error: Datos incorrectos.");
+            (empty($lastname2)||$lastname2==null)||(empty($pass)||$pass==null)) {
+                redirigirConMensaje("Error: Datos incompletos.");
             } else {
-                redirigirConMensaje("Registro exitoso");
+                $query = "INSERT INTO users VALUES (NULL,'$name', '$lastname', '$lastname2','$pass',2)";
+                $result = mysqli_query($conn, $query);
+
+                if (!$result) {
+                    die("Error al registrar: " . mysqli_error($conn));
+                } else {
+                    redirigirConMensaje("Registro exitoso");
+                }
+                mysqli_close($conn);
             }
         } else {
             redirigirConMensaje("Error: Datos no proporcionados.");
